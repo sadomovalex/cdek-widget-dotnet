@@ -1,0 +1,7 @@
+.vs
+[Bb]in
+[Db]ebug/
+[Oo]bj/
+[Rr]elease/
+_ReSharper/
+appsettings.Development.json

@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@@cdek-it/widget@@3" charset="utf-8"></script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        new window.CDEKWidget({
+            from: 'Москва',
+            defaultLocation: 'Москва',
+            root: 'CdekWidget',
+            apiKey: '@this.Model.YandexMapsApiKey',
+            canChoose: true,
+            servicePath: 'https://cdek.example.ru/service.php',
+            hideFilters: {
+              have_cashless: false,
+              have_cash: false,
+              is_dressing_room: false,
+              type: false,
+            },
+            hideDeliveryOptions: {
+              office: false,
+              door: false,
+            },
+            debug: false,
+            goods: [
+              {
+                width: 10,
+                height: 10,
+                length: 10,
+                weight: 10,
+              },
+            ],
+            lang: 'rus',
+            currency: 'RUB',
+            tariffs: {
+              office: [234, 136, 138],
+              door: [233, 137, 139],
+            },
+            onReady() {
+              alert('Виджет загружен');
+            },
+            onCalculate() {
+              alert('Расчет стоимости доставки произведен');
+            },
+            onChoose() {
+              alert('Доставка выбрана');
+            },
+        });
+    });
+</script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="CdekWidget" style="width: 800px; height: 600px"></div>
